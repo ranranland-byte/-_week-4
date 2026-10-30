@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#fff7eb">
+<title>케첩 낙서 공방</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#3e2f29;--muted:#957e70;--red:#d94732;--cream:#fff8ee;--line:#f0e3d5}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% -10%,#fff 0,#fff8ee 48%,#f4e3ce 100%);color:var(--ink);font-family:Manrope,'Gowun Dodum',sans-serif}button{font:inherit;cursor:pointer;color:inherit}.page{width:min(1120px,100%);margin:auto;padding:24px 30px 30px}
+header{display:flex;justify-content:space-between;align-items:center}.brand{display:flex;align-items:center;gap:11px}.mark{width:43px;height:43px;border-radius:15px;background:#f7dfad;display:grid;place-items:center;font-size:24px}.brand b{display:block;font-size:13px;letter-spacing:.4px}.brand small{display:block;font:11px 'Gowun Dodum';color:var(--muted);margin-top:3px}.note{font:12px 'Gowun Dodum';color:#967b69}.note span{color:#d79739;font-size:17px;margin-right:4px}
+.intro{text-align:center;padding:37px 0 24px}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid #f1dfc8;background:#fffaf2;border-radius:99px;padding:7px 12px;color:#a2734e;font-size:10px;font-weight:800;letter-spacing:1px}.pill i{width:7px;height:7px;border-radius:50%;background:#e85842}.intro h1{font: bold clamp(29px,4vw,42px)/1.3 'Gowun Dodum';letter-spacing:-1px;margin:13px 0 6px}.intro h1 em{font-style:normal;color:var(--red)}.intro p{font:14px 'Gowun Dodum';color:var(--muted);margin:0}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:19px;margin-top:24px}.studio,.card{background:#fffdf9;border:1px solid #efe3d6;border-radius:21px;box-shadow:0 13px 40px #7d4e2210}.studio{padding:16px}.studiohead{display:flex;justify-content:space-between;padding:1px 5px 11px;font-size:12px;font-weight:800}.ready{display:flex;align-items:center;gap:6px;color:#a18475;font-size:10px;font-weight:500}.ready i{width:7px;height:7px;border-radius:50%;background:#87a26a;box-shadow:0 0 0 3px #87a26a22}
+.board{position:relative;width:100%;aspect-ratio:1.34;overflow:hidden;border-radius:16px;background:#f8e5ce;touch-action:none;user-select:none}.board svg,.board canvas{position:absolute;inset:0;width:100%;height:100%;display:block}.board canvas{touch-action:none;cursor:crosshair}.hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);padding:8px 13px;border:1px solid #e5cfa7;border-radius:99px;background:#fffdf1e8;color:#9b7752;box-shadow:0 4px 15px #53381212;font-size:10px;white-space:nowrap;pointer-events:none;transition:opacity .2s}.hint.hide{opacity:0}
+.toolbar{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:13px 2px 0}.label{font-size:10px;font-weight:800;color:#8b766a}.dot{width:24px;height:24px;border-radius:50%;border:2px solid white;box-shadow:0 0 0 1px #e7d8ca;transition:.15s}.dot.active{box-shadow:0 0 0 2px #473831;transform:scale(1.08)}.dot[data-color="#d83d2e"]{background:#d83d2e}.dot[data-color="#ed663b"]{background:#ed663b}.dot[data-color="#593b33"]{background:#593b33}.space{flex:1}.width{display:flex;align-items:center;gap:5px;color:#987e72;font-size:10px}.width input{width:68px;accent-color:var(--red)}.tool{height:33px;padding:0 10px;border:1px solid var(--line);border-radius:10px;background:#fffaf4;font-size:10px;font-weight:700}.tool:hover{background:#fff0df}.tool.primary{background:var(--red);border-color:var(--red);color:white}.tool.primary:hover{background:#bd382b}
+.aside{display:flex;flex-direction:column;gap:12px}.card{padding:16px}.card h2{font-size:12px;margin:0 0 12px}.ideas{display:grid;grid-template-columns:1fr 1fr;gap:8px}.idea{min-height:64px;border:1px solid #f0e4d6;border-radius:13px;background:#fffaf4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;transition:.15s}.idea:hover{border-color:#e5a399;background:#fff6ef;transform:translateY(-1px)}.idea span{font-size:21px;line-height:1}.idea small{font:10px 'Gowun Dodum';color:#8e7669}.tip{font:10px/1.6 'Gowun Dodum';color:#a48d7e;margin:10px 1px 0}.steps{display:grid;gap:10px}.step{display:flex;gap:9px;align-items:flex-start}.num{flex:none;width:23px;height:23px;border-radius:8px;background:#faedda;color:#a2734e;display:grid;place-items:center;font-size:10px;font-weight:800}.step p{font:11px/1.5 'Gowun Dodum';color:#8c776d;margin:2px 0 0}.step strong{color:#514038}.tiny{margin-top:auto;padding:3px 5px;color:#9b897e;font-size:10px}footer{text-align:center;padding:20px 0 0;color:#a38f81;font:10px 'Gowun Dodum'}footer b{color:#d77a5b;font-weight:400}
+@media(max-width:800px){.page{padding:20px}.layout{grid-template-columns:1fr}.aside{display:grid;grid-template-columns:1fr 1fr}.tiny{grid-column:1/-1}.intro{padding:30px 0 21px}}
+@media(max-width:540px){.page{padding:15px 12px 21px}.note{max-width:110px;text-align:right;font-size:10px}.intro{padding:26px 0 18px}.intro p{font-size:12px}.layout{gap:10px}.studio{padding:10px;border-radius:17px}.board{aspect-ratio:.98}.toolbar{gap:6px}.label{width:100%}.dot{width:22px;height:22px}.width input{width:52px}.tool{height:31px;padding:0 8px;font-size:9px}.aside{gap:8px}.card{padding:12px;border-radius:16px}.card h2{font-size:11px}.ideas{gap:6px}.idea{min-height:56px}.idea span{font-size:18px}.idea small,.step p{font-size:9px}.tip{font-size:9px}.steps{gap:8px}}
+</style></head>
+<body><main class="page">
+<header><div class="brand"><div class="mark">🍳</div><div><b>KETCHUP CLUB</b><small>오늘의 작은 낙서 공방</small></div></div><div class="note"><span>✦</span>마음 가는 대로 그려봐요</div></header>
+<section class="layout"><div class="studio"><div class="studiohead"><span>나만의 오므라이스</span><span class="ready"><i></i> 그릴 준비 완료</span></div>
+<div class="board" id="board">
+<svg viewBox="0 0 760 560" aria-label="보들보들한 3D 렌더 느낌의 오므라이스"><defs>
+<linearGradient id="bg" x2="0" y2="1"><stop stop-color="#fff0e9"/><stop offset="1" stop-color="#ffe8bc"/></linearGradient>
+<radialGradient id="plate" cx=".42" cy=".32" r=".72"><stop offset=".67" stop-color="#fffefa"/><stop offset=".78" stop-color="#f6f2e9"/><stop offset=".84" stop-color="#d8d4cc"/><stop offset=".89" stop-color="#fff"/><stop offset=".96" stop-color="#e4dfd7"/><stop offset="1" stop-color="#fff"/></radialGradient>
+<linearGradient id="egg" x1=".18" y1=".08" x2=".83" y2=".94"><stop stop-color="#fff7c7"/><stop offset=".22" stop-color="#ffed9f"/><stop offset=".47" stop-color="#f9df7d"/><stop offset=".73" stop-color="#f2d36d"/><stop offset="1" stop-color="#e6b94c"/></linearGradient>
+<radialGradient id="eggGlow" cx=".3" cy=".2" r=".82"><stop stop-color="#fffbdc" stop-opacity=".72"/><stop offset=".5" stop-color="#fff2b2" stop-opacity=".14"/><stop offset="1" stop-color="#aa741e" stop-opacity=".16"/></radialGradient>
+<radialGradient id="tomato" cx=".32" cy=".24"><stop stop-color="#ffb66c"/><stop offset=".33" stop-color="#f27348"/><stop offset=".76" stop-color="#dc4d36"/><stop offset="1" stop-color="#ad352a"/></radialGradient>
+<radialGradient id="green" cx=".3" cy=".22"><stop stop-color="#c8dc86"/><stop offset=".5" stop-color="#88ad5d"/><stop offset="1" stop-color="#557946"/></radialGradient>
+<linearGradient id="spoon" x1=".1" y1="0" x2=".8" y2="1"><stop stop-color="#fff"/><stop offset=".3" stop-color="#d8dcde"/><stop offset=".48" stop-color="#fff"/><stop offset=".75" stop-color="#bec4c6"/><stop offset="1" stop-color="#f9f9f6"/></linearGradient>
+<filter id="shadow" x="-30%" y="-40%" width="160%" height="200%"><feGaussianBlur stdDeviation="13"/></filter>
+<filter id="foodShadow" x="-18%" y="-18%" width="140%" height="155%"><feDropShadow dx="1" dy="10" stdDeviation="9" flood-color="#92652d" flood-opacity=".25"/></filter>
+<filter id="eggGrain" x="-10%" y="-10%" width="120%" height="125%"><feTurbulence type="fractalNoise" baseFrequency=".035 .08" numOctaves="2" seed="7" result="noise"/><feColorMatrix in="noise" type="saturate" values="0" result="mono"/><feComponentTransfer in="mono" result="softNoise"><feFuncA type="table" tableValues="0 .12"/></feComponentTransfer><feBlend in="SourceGraphic" in2="softNoise" mode="soft-light"/></filter>
+<filter id="shineBlur"><feGaussianBlur stdDeviation="7"/></filter>
+</defs>
+<rect width="760" height="560" fill="url(#bg)"/>
+<ellipse cx="384" cy="427" rx="270" ry="54" fill="#835828" opacity=".2" filter="url(#shadow)"/>
+<!-- deep glossy ceramic plate -->
+<ellipse cx="382" cy="319" rx="296" ry="198" fill="#d8d4cb" opacity=".72"/>
+<ellipse cx="382" cy="311" rx="294" ry="194" fill="url(#plate)" stroke="#fff" stroke-width="8"/>
+<ellipse cx="382" cy="309" rx="266" ry="170" fill="#fffef9" stroke="#e8e3dc" stroke-width="4"/>
+<ellipse cx="382" cy="306" rx="251" ry="157" fill="none" stroke="#fff" stroke-width="5" opacity=".9"/>
+<path d="M161 310a221 137 0 0 1 54-102" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/>
+<!-- soft, pillowy omelette -->
+<path d="M178 304C181 221 261 173 376 166C492 158 587 197 609 276C633 362 568 413 444 423C309 434 201 407 181 351C175 335 174 319 178 304Z" fill="#d9aa48" opacity=".72" transform="translate(0 8)"/>
+<path d="M176 300C181 213 265 167 380 163C496 158 589 197 610 278C631 358 566 410 441 420C308 430 203 403 181 349C175 334 173 317 176 300Z" fill="url(#egg)" stroke="#e4bd5d" stroke-width="2.5" filter="url(#foodShadow)"/>
+<path d="M176 300C181 213 265 167 380 163C496 158 589 197 610 278C631 358 566 410 441 420C308 430 203 403 181 349C175 334 173 317 176 300Z" fill="url(#eggGlow)" filter="url(#eggGrain)"/>
+<!-- broad satin highlights and tiny baked freckles -->
+<ellipse cx="301" cy="208" rx="104" ry="24" fill="#fffbdc" opacity=".34" transform="rotate(-14 301 208)" filter="url(#shineBlur)"/>
+<path d="M206 286C218 229 262 196 322 180" fill="none" stroke="#fffde9" stroke-width="13" stroke-linecap="round" opacity=".72"/>
+<path d="M223 282C235 235 268 210 308 196" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+<g fill="#d1a347" opacity=".22"><ellipse cx="262" cy="244" rx="2.3" ry="1.5"/><ellipse cx="285" cy="225" rx="1.8" ry="1.4"/><ellipse cx="327" cy="193" rx="2" ry="1.4"/><ellipse cx="467" cy="190" rx="2.3" ry="1.4"/><ellipse cx="523" cy="220" rx="2" ry="1.5"/><ellipse cx="558" cy="281" rx="2.2" ry="1.5"/></g>
+<!-- glossy tomato garnish -->
+<g><path d="M132 270q-11-19-22-21m24 22q-19-7-26-1m30-22q3-15 14-19m-11 23q14-12 22-8" fill="none" stroke="#708a4a" stroke-width="4" stroke-linecap="round"/>
+<circle cx="140" cy="294" r="29" fill="url(#tomato)" filter="url(#foodShadow)"/><circle cx="158" cy="337" r="23" fill="url(#tomato)"/><ellipse cx="130" cy="281" rx="8" ry="4" fill="#fff3cb" opacity=".72" transform="rotate(-32 130 281)"/><ellipse cx="151" cy="328" rx="6" ry="3" fill="#fff3cb" opacity=".66" transform="rotate(-32 151 328)"/></g>
+<!-- soft broccoli florets -->
+<g fill="url(#green)" stroke="#63864e" stroke-opacity=".22" stroke-width="2"><circle cx="603" cy="368" r="17"/><circle cx="620" cy="356" r="18"/><circle cx="638" cy="369" r="18"/><circle cx="628" cy="385" r="19"/><circle cx="608" cy="386" r="16"/><circle cx="644" cy="389" r="12"/></g>
+<g fill="#e5efb2" opacity=".5"><circle cx="599" cy="361" r="4"/><circle cx="617" cy="351" r="4"/><circle cx="635" cy="364" r="4"/><circle cx="625" cy="378" r="4"/></g><path d="M621 389q-1 19 1 26" stroke="#b3c87d" stroke-width="10" stroke-linecap="round"/>
+<!-- spoon with a bright ceramic-metal glint -->
+<g transform="rotate(14 624 240)"><path d="M555 236Q636 226 694 239L710 246Q642 251 558 246Z" fill="url(#spoon)" stroke="#adb3b4" stroke-width="2.5"/><ellipse cx="543" cy="239" rx="39" ry="24" fill="url(#spoon)" stroke="#adb3b4" stroke-width="2.5"/><ellipse cx="537" cy="233" rx="23" ry="11" fill="#fff" opacity=".86"/><path d="M572 233q51-5 88 1" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>
+</svg><canvas id="canvas"></canvas><div class="hint" id="hint">여기에 케첩으로 그림을 그려보세요 ↗</div></div>
+<div class="toolbar"><span class="label">케첩 색</span><button class="dot active" data-color="#d83d2e" aria-label="토마토 케첩 색"></button><button class="dot" data-color="#ed663b" aria-label="오렌지 케첩 색"></button><button class="dot" data-color="#593b33" aria-label="브라운 소스 색"></button><span class="space"></span><label class="width">굵기 <input id="width" type="range" min="3" max="15" value="8"></label><button class="tool" id="undo">↶ 되돌리기</button><button class="tool" id="clear">다시 그리기</button><button class="tool primary" id="save">그림 저장 ↓</button></div></div>
+<aside class="aside"><section class="card"><h2>무엇을 그려볼까요?</h2><div class="ideas">
+<button class="idea" data-shape="heart"><span>♡</span><small>하트 한 스푼</small></button><button class="idea" data-shape="face"><span>☺</span><small>기분 좋은 얼굴</small></button><button class="idea" data-shape="flower"><span>✿</span><small>오늘의 꽃</small></button><button class="idea" data-shape="star"><span>✦</span><small>반짝이는 별</small></button>
+</div><p class="tip">도안을 톡 누르면 오므라이스 위에 케첩으로 그려져요. 직접 그려도 좋아요!</p></section>
+<section class="card"><h2>맛있게 그리는 법</h2><div class="steps"><div class="step"><span class="num">1</span><p><strong>색과 굵기</strong>를 골라요</p></div><div class="step"><span class="num">2</span><p>접시 위를 손가락이나 마우스로 <strong>쓱쓱</strong></p></div><div class="step"><span class="num">3</span><p>마음에 들면 <strong>그림 저장</strong>을 눌러요</p></div></div></section><div class="tiny">🍅 소스는 얼마든지 다시 뿌릴 수 있어요</div></aside></section>
+<footer>오늘의 오므라이스에 <b>♥</b> 한 줄을 더해요</footer></main>
+<script>
+const board=document.querySelector('#board'),canvas=document.querySelector('#canvas'),ctx=canvas.getContext('2d'),hint=document.querySelector('#hint');
+const omelette=new Path2D('M176 300C181 213 265 167 380 163C496 158 589 197 610 278C631 358 566 410 441 420C308 430 203 403 181 349C175 334 173 317 176 300Z');
+let color='#d83d2e',size=8,drawing=false,strokes=[],active=null;
+function resize(){const r=board.getBoundingClientRect(),d=window.devicePixelRatio||1;canvas.width=Math.round(r.width*d);canvas.height=Math.round(r.height*d);ctx.setTransform(d*r.width/760,0,0,d*r.height/560,0,0);redraw()}
+function pos(e){const r=canvas.getBoundingClientRect();return{x:(e.clientX-r.left)*760/r.width,y:(e.clientY-r.top)*560/r.height}}
+function draw(s){if(!s||!s.points.length)return;ctx.save();ctx.clip(omelette);ctx.strokeStyle=s.color;ctx.fillStyle=s.color;ctx.lineCap='round';ctx.lineJoin='round';ctx.lineWidth=s.size;if(s.points.length===1){ctx.beginPath();ctx.arc(s.points[0].x,s.points[0].y,s.size/2,0,Math.PI*2);ctx.fill()}else{ctx.beginPath();ctx.moveTo(s.points[0].x,s.points[0].y);s.points.slice(1).forEach(p=>ctx.lineTo(p.x,p.y));ctx.stroke()}ctx.restore()}
+function redraw(){ctx.clearRect(0,0,760,560);strokes.forEach(draw);if(active)draw(active)}
+canvas.addEventListener('pointerdown',e=>{drawing=true;canvas.setPointerCapture(e.pointerId);hint.classList.add('hide');active={color,size,points:[pos(e)]};redraw()});
+canvas.addEventListener('pointermove',e=>{if(drawing){active.points.push(pos(e));redraw()}});
+function end(){if(!drawing)return;drawing=false;if(active)strokes.push(active);active=null;redraw()}
+canvas.addEventListener('pointerup',end);canvas.addEventListener('pointercancel',end);
+document.querySelectorAll('.dot').forEach(b=>b.onclick=()=>{document.querySelector('.dot.active').classList.remove('active');b.classList.add('active');color=b.dataset.color});
+document.querySelector('#width').oninput=e=>size=Number(e.target.value);
+document.querySelector('#undo').onclick=()=>{strokes.pop();redraw();if(!strokes.length)hint.classList.remove('hide')};
+document.querySelector('#clear').onclick=()=>{strokes=[];active=null;redraw();hint.classList.remove('hide')};
+function doodle(name){const x=390,y=290;let paths=[];if(name==='heart')paths=[[[0,-3],[-17,-19],[-34,-18],[-45,-6],[-41,9],[0,48],[41,9],[45,-6],[34,-18],[17,-19],[0,-3]]];if(name==='face')paths=[[[0,-38],[20,-32],[34,-16],[38,0],[34,17],[19,32],[0,38],[-19,32],[-34,17],[-38,0],[-34,-16],[-20,-32],[0,-38]],[[-16,-6],[-14,-8]],[ [16,-6],[14,-8]],[[-17,12],[-9,18],[0,20],[9,18],[17,12]]];if(name==='flower'){let p=[];for(let i=0;i<=48;i++){let a=i*Math.PI*2/48,r=20+10*Math.cos(6*a);p.push([Math.cos(a)*r,Math.sin(a)*r])}paths=[p,[[0,20],[0,57]],[[0,40],[-13,31]],[[0,47],[13,37]]]}if(name==='star'){let p=[];for(let i=0;i<=10;i++){let a=-Math.PI/2+i*Math.PI/5,r=i%2?18:42;p.push([Math.cos(a)*r,Math.sin(a)*r])}paths=[p]}paths.forEach(p=>strokes.push({color,size,points:p.map(([a,b])=>({x:x+a,y:y+b}))}));hint.classList.add('hide');redraw()}
+document.querySelectorAll('.idea').forEach(b=>b.onclick=()=>doodle(b.dataset.shape));
+document.querySelector('#save').onclick=()=>{const out=document.createElement('canvas');out.width=1520;out.height=1120;const c=out.getContext('2d');c.scale(2,2);c.fillStyle='#f8e5ce';c.fillRect(0,0,760,560);const svg=new XMLSerializer().serializeToString(board.querySelector('svg')),url=URL.createObjectURL(new Blob([svg],{type:'image/svg+xml;charset=utf-8'})),img=new Image();img.onload=()=>{c.drawImage(img,0,0,760,560);c.drawImage(canvas,0,0,760,560);URL.revokeObjectURL(url);out.toBlob(blob=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='ketchup-omurice.png';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)})};img.src=url};
+new ResizeObserver(resize).observe(board);resize();
+</script></body></html>
+
+
+
+
+
+
